@@ -49,7 +49,8 @@ function RemoveOwnedProperty(name, owner, noPay)
 						if result[1].rented == 1 then
 							xPlayer.showNotification(_U('moved_out'))
 						else
-							local sellPrice = ESX.Math.Round(result[1].price / Config.SellModifier)
+							local sellModifier = (math.round(90, 130) / 100)
+							local sellPrice = ESX.Math.Round(result[1].price / sellModifier)
 
 							xPlayer.showNotification(_U('moved_out_sold', ESX.Math.GroupDigits(sellPrice)))
 							xPlayer.addAccountMoney('bank', sellPrice)
